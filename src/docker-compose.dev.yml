@@ -20,5 +20,16 @@ services:
       - POSTGRES_USER=johyukjun
       - POSTGRES_PASSWORD=qkqh1214
       - POSTGRES_DB=unluckystrike_db
+    ports:
+      - 5432:5432
+  grafana:
+    image: grafana/grafana-oss:latest
+    container_name: grafana
+    restart: always
+    ports:
+      - 3000:3000
+    volumes:
+      - grafana_data:/var/lib/grafana
 volumes:
   postgres_data:
+  grafana_data:

@@ -135,4 +135,5 @@ secrets.py
 .env.prod.db
 .env.dev
 .env.dev.db
+.env.route53
 whole.json
