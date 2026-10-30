@@ -1,17 +1,112 @@
 {% extends "base.html" %}
 
-{% block title%}Stock - Unlucky Strike{% endblock title %}
+{% block title %}ETF - Unlucky Strike{% endblock title %}
 
 {% block content %}
-<h2>ETF 종목 리스트</h2>
-<ul>
-  {% for etf in etf_list %}
-    <li>
-      <a href="{% url 'etf_detail' etf.ticker %}">{{ etf.name }}</a>
-    </li>
-  {% empty %}
-    <li>ETF 데이터가 없습니다.</li>
-  {% endfor %}
-</ul>
+<style>
+  .etf-header {
+    margin-bottom: 16px;
+  }
+
+  .etf-header p {
+    margin: 0;
+  }
+
+  .etf-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .etf-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 150px;
+    padding: 12px;
+    background: var(--surface);
+    box-shadow: var(--border-window-outer), var(--border-window-inner);
+  }
+
+  .etf-card-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .etf-card h3 {
+    margin: 0;
+    font-size: 1.25rem;
+  }
+
+  .etf-ticker {
+    flex-shrink: 0;
+    color: var(--dialog-blue);
+    font-weight: bold;
+  }
+
+  .etf-description {
+    flex: 1;
+    margin: 0 0 16px;
+    line-height: 1.5;
+  }
+
+  .etf-action {
+    align-self: flex-end;
+    box-sizing: border-box;
+    min-width: 100px;
+    padding: 4px 12px;
+    background: var(--button-face);
+    box-shadow: var(--border-raised-outer), var(--border-raised-inner);
+    color: inherit;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .etf-action:active {
+    box-shadow: var(--border-sunken-outer), var(--border-sunken-inner);
+  }
+
+  .etf-action:focus-visible {
+    outline: 1px dotted #000;
+    outline-offset: -4px;
+  }
+
+  .etf-empty {
+    padding: 16px;
+    background: var(--surface);
+    box-shadow: var(--border-sunken-outer), var(--border-sunken-inner);
+  }
+</style>
+
+<header class="etf-header">
+  <h2>ETF 종목 리스트</h2>
+  <p>관심 있는 ETF를 선택하면 배당금 추이를 확인할 수 있습니다.</p>
+</header>
+
+{% if etf_list %}
+  <ul class="etf-grid" aria-label="ETF 목록">
+    {% for etf in etf_list %}
+      <li class="etf-card">
+        <div class="etf-card-header">
+          <h3>{{ etf.name }}</h3>
+          <span class="etf-ticker">{{ etf.ticker }}</span>
+        </div>
+        <p class="etf-description">
+          {{ etf.description|default:"등록된 설명이 없습니다."|truncatewords:24 }}
+        </p>
+        <a class="etf-action" href="{% url 'etf_detail' etf.ticker %}">
+          배당금 보기
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p class="etf-empty">ETF 데이터가 없습니다.</p>
+{% endif %}
 
 {% endblock %}
