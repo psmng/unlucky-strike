@@ -3,153 +3,184 @@
 
 {% block content %}
 
-<h2 id="project">Project</h2>
+<style>
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    min-height: 150px;
+  }
+
+  .project-card .window-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .project-card p {
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .project-card .field-row {
+    justify-content: flex-end;
+  }
+
+  .project-card .field-row a {
+    box-sizing: border-box;
+    display: inline-block;
+    min-height: 23px;
+    min-width: 75px;
+    padding: 4px 12px;
+    background: var(--button-face);
+    box-shadow: var(--border-raised-outer), var(--border-raised-inner);
+    color: inherit;
+    font-family: "Pixelated MS Sans Serif", Arial;
+    font-size: 11px;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .project-card .field-row a:active {
+    box-shadow: var(--border-sunken-outer), var(--border-sunken-inner);
+  }
+
+  .project-card .field-row a:focus-visible {
+    outline: 1px dotted #000;
+    outline-offset: -4px;
+  }
+</style>
+
+<h2 id="project">Projects</h2>
 <hr>
-<section class="component">
-  <div>
-    <div class="window" style="width: 400px">
-      <div class="title-bar">
-        <div class="title-bar-text">Object Detection</div>
-        <div class="title-bar-controls">
-          <button aria-label="Minimize"></button>
-          <button aria-label="Maximize"></button>
-          <button aria-label="Close"></button>
-        </div>
-      </div>
-      <div class="window-body">
-        <p>Real-Time Object Detection Using CNN On Mobile Device</p>
-        <section class="field-row" style="justify-content: flex-end">
-          <button onclick="location.href='/projects/object-detection'"><a href="/projects/object-detection">View</a></button>
-        </section>
+<section class="project-grid" aria-labelledby="project">
+  <article class="window project-card">
+    <div class="title-bar">
+      <div class="title-bar-text">Object Detection</div>
+      <div class="title-bar-controls" aria-hidden="true">
+        <button type="button" aria-label="Minimize" disabled></button>
+        <button type="button" aria-label="Maximize" disabled></button>
+        <button type="button" aria-label="Close" disabled></button>
       </div>
     </div>
-  </div>
-</section>
+    <div class="window-body">
+      <p>Real-Time Object Detection Using CNN On Mobile Device</p>
+      <div class="field-row">
+        <a href="/projects/object-detection">View project</a>
+      </div>
+    </div>
+  </article>
 
-<section class="component">
-  <div>
-    <div class="window" style="width: 400px">
-      <div class="title-bar">
-        <div class="title-bar-text">Raspberry Pi Lab</div>
-        <div class="title-bar-controls">
-          <button aria-label="Minimize"></button>
-          <button aria-label="Maximize"></button>
-          <button aria-label="Close"></button>
-        </div>
-      </div>
-      <div class="window-body">
-        <p>Deep Learning for Smoking Detection Intelligent CCTV</p>
-        <section class="field-row" style="justify-content: flex-end">
-          <button onclick="location.href='/projects/raspberry-pi-lab'"><a href="/projects/raspberry-pi-lab">View</a></button>
-        </section>
+  <article class="window project-card">
+    <div class="title-bar">
+      <div class="title-bar-text">Raspberry Pi Lab</div>
+      <div class="title-bar-controls" aria-hidden="true">
+        <button type="button" aria-label="Minimize" disabled></button>
+        <button type="button" aria-label="Maximize" disabled></button>
+        <button type="button" aria-label="Close" disabled></button>
       </div>
     </div>
-  </div>
-</section>
+    <div class="window-body">
+      <p>Deep Learning for Smoking Detection Intelligent CCTV</p>
+      <div class="field-row">
+        <a href="/projects/raspberry-pi-lab">View project</a>
+      </div>
+    </div>
+  </article>
 
-<section class="component">
-  <div>
-    <div class="window" style="width: 400px">
-      <div class="title-bar">
-        <div class="title-bar-text">jADAS</div>
-        <div class="title-bar-controls">
-          <button aria-label="Minimize"></button>
-          <button aria-label="Maximize"></button>
-          <button aria-label="Close"></button>
-        </div>
-      </div>
-      <div class="window-body">
-        <p>Deep Learning for Advanced Driver Assistance System Applications</p>
-        <section class="field-row" style="justify-content: flex-end">
-          <button onclick="location.href='/projects/deep-learning-for-advanced-driver-assistance-system-applications'"><a href="/projects/deep-learning-for-advanced-driver-assistance-system-applications">View</a></button>
-        </section>
+  <article class="window project-card">
+    <div class="title-bar">
+      <div class="title-bar-text">jADAS</div>
+      <div class="title-bar-controls" aria-hidden="true">
+        <button type="button" aria-label="Minimize" disabled></button>
+        <button type="button" aria-label="Maximize" disabled></button>
+        <button type="button" aria-label="Close" disabled></button>
       </div>
     </div>
-  </div>
-</section>
+    <div class="window-body">
+      <p>Deep Learning for Advanced Driver Assistance System Applications</p>
+      <div class="field-row">
+        <a href="/projects/deep-learning-for-advanced-driver-assistance-system-applications">View project</a>
+      </div>
+    </div>
+  </article>
 
-<section class="component">
-  <div>
-    <div class="window" style="width: 400px">
-      <div class="title-bar">
-        <div class="title-bar-text">Image Processing</div>
-        <div class="title-bar-controls">
-          <button aria-label="Minimize"></button>
-          <button aria-label="Maximize"></button>
-          <button aria-label="Close"></button>
-        </div>
-      </div>
-      <div class="window-body">
-        <p>Image Processing</p>
-        <section class="field-row" style="justify-content: flex-end">
-          <button onclick="location.href='/projects/image-processing'"><a href="/projects/image-processing">View</a></button>
-        </section>
+  <article class="window project-card">
+    <div class="title-bar">
+      <div class="title-bar-text">Image Processing</div>
+      <div class="title-bar-controls" aria-hidden="true">
+        <button type="button" aria-label="Minimize" disabled></button>
+        <button type="button" aria-label="Maximize" disabled></button>
+        <button type="button" aria-label="Close" disabled></button>
       </div>
     </div>
-  </div>
-</section>
+    <div class="window-body">
+      <p>Image Processing</p>
+      <div class="field-row">
+        <a href="/projects/image-processing">View project</a>
+      </div>
+    </div>
+  </article>
 
-<section class="component">
-  <div>
-    <div class="window" style="width: 400px">
-      <div class="title-bar">
-        <div class="title-bar-text">Cognitive Services</div>
-        <div class="title-bar-controls">
-          <button aria-label="Minimize"></button>
-          <button aria-label="Maximize"></button>
-          <button aria-label="Close"></button>
-        </div>
-      </div>
-      <div class="window-body">
-        <p>Microsoft Azure API</p>
-        <section class="field-row" style="justify-content: flex-end">
-          <button onclick="location.href='/projects/cognitive-services'"><a href="/projects/cognitive-services">View</a></button>
-        </section>
+  <article class="window project-card">
+    <div class="title-bar">
+      <div class="title-bar-text">Cognitive Services</div>
+      <div class="title-bar-controls" aria-hidden="true">
+        <button type="button" aria-label="Minimize" disabled></button>
+        <button type="button" aria-label="Maximize" disabled></button>
+        <button type="button" aria-label="Close" disabled></button>
       </div>
     </div>
-  </div>
-</section>
+    <div class="window-body">
+      <p>Microsoft Azure API</p>
+      <div class="field-row">
+        <a href="/projects/cognitive-services">View project</a>
+      </div>
+    </div>
+  </article>
 
-<section class="component">
-  <div>
-    <div class="window" style="width: 400px">
-      <div class="title-bar">
-        <div class="title-bar-text">ETF</div>
-        <div class="title-bar-controls">
-          <button aria-label="Minimize"></button>
-          <button aria-label="Maximize"></button>
-          <button aria-label="Close"></button>
-        </div>
-      </div>
-      <div class="window-body">
-        <p>ETF Analytics</p>
-        <section class="field-row" style="justify-content: flex-end">
-          <button onclick="location.href='/projects/etf'"><a href="/projects/etf">View</a></button>
-        </section>
+  <article class="window project-card">
+    <div class="title-bar">
+      <div class="title-bar-text">ETF</div>
+      <div class="title-bar-controls" aria-hidden="true">
+        <button type="button" aria-label="Minimize" disabled></button>
+        <button type="button" aria-label="Maximize" disabled></button>
+        <button type="button" aria-label="Close" disabled></button>
       </div>
     </div>
-  </div>
-</section>
+    <div class="window-body">
+      <p>ETF Analytics</p>
+      <div class="field-row">
+        <a href="/projects/etf">View project</a>
+      </div>
+    </div>
+  </article>
 
-<section class="component">
-  <div>
-    <div class="window" style="width: 400px">
-      <div class="title-bar">
-        <div class="title-bar-text">System Monitoring</div>
-        <div class="title-bar-controls">
-          <button aria-label="Minimize"></button>
-          <button aria-label="Maximize"></button>
-          <button aria-label="Close"></button>
-        </div>
-      </div>
-      <div class="window-body">
-        <p>시스템 모니터링 대시보드</p>
-        <section class="field-row" style="justify-content: flex-end">
-          <button onclick="location.href='/projects/system-monitoring'"><a href="/projects/system-monitoring">View</a></button>
-        </section>
+  <article class="window project-card">
+    <div class="title-bar">
+      <div class="title-bar-text">System Monitoring</div>
+      <div class="title-bar-controls" aria-hidden="true">
+        <button type="button" aria-label="Minimize" disabled></button>
+        <button type="button" aria-label="Maximize" disabled></button>
+        <button type="button" aria-label="Close" disabled></button>
       </div>
     </div>
-  </div>
+    <div class="window-body">
+      <p>시스템 모니터링 대시보드</p>
+      <div class="field-row">
+        <a href="/projects/system-monitoring">View project</a>
+      </div>
+    </div>
+  </article>
 </section>
 
 {% endblock %}
