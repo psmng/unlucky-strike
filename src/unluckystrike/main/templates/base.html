@@ -69,9 +69,10 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P82J5MW4"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-<body ontouchstart>
-  <nav>
-    <aside>
+<body>
+  <a class="skip-link" href="#content">본문 바로가기</a>
+  <nav class="site-nav" aria-label="주 메뉴">
+    <aside class="site-sidebar">
       <ul class="tree-view">
         <li>
           <a href="{% url 'home_index' %}">Unlucky Strike</a>
@@ -91,25 +92,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <li><a href="{% url 'project_index' %}">Project</a></li>
             <li><a href="{% url 'home_about' %}">About</a></li>
             <li><a href="{% url 'home_contact' %}">Contact</a></li>
+          </ul>
         </li>
         <li><a href="https://github.com/JoHyukJun/unlucky-strike">Issues, Contributing, etc.</a></li>
       </ul>
     </aside>
   </nav>
 
-  <main>
+  <main id="content" class="site-main">
   {% block content %}
   {% endblock %}
   <br>
   <hr>
-  <footer class="footer-container text-center">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <p>© UNLUCKY STRIKE </p>
-        </div>
-      </div>
-    </div>
+  <footer class="site-footer">
+    <p>© UNLUCKY STRIKE</p>
   </footer>
   </main>
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122725080-3"></script>
