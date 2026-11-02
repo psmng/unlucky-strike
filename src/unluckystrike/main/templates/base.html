@@ -82,7 +82,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <details>
                 <summary>
                   <a href="{% url 'blog_index' %}">Blog</a>
-                  <span class="category-toggle" aria-hidden="true">Categories <span class="category-toggle-icon"></span></span>
+                  <span class="category-toggle" aria-label="카테고리 펼치기" aria-hidden="true"><span class="category-toggle-icon"></span></span>
                 </summary>
                 <ul>
                 {% for category in blog_categories %}
