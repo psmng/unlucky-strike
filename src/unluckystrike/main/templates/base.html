@@ -80,7 +80,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <li><a href="{% url 'home_index' %}">Home</a></li>
             <li>
               <details>
-                <summary><a href="{% url 'blog_index' %}">Blog</a></summary>
+                <summary>
+                  <a href="{% url 'blog_index' %}">Blog</a>
+                  <span class="category-toggle" aria-hidden="true">Categories <span class="category-toggle-icon"></span></span>
+                </summary>
                 <ul>
                 {% for category in blog_categories %}
                 <li><a href="{% url 'blog_category' category.name %}">{{ category.name }}</a></li>
